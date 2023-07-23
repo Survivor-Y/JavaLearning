@@ -66,9 +66,5 @@ kramdown:
 # RSS
 RSS: false
 
-# Permalink
-# See: https://github.com/kaeyleo/jekyll-theme-H2O/issues/35
-permalink: /:year/:month/:day/:title.html
-
 # Plugins
 plugins: [jekyll-paginate]

@@ -6,8 +6,6 @@ author: 陈十一
 tags: Java
 ---
 
-> Transform your plain text into static websites and blogs.
-
 @[TOC](JavaLearning)
 
 # Java基础篇

@@ -1,6 +1,6 @@
-# Test Page
- 
-It's a test page
-## Header 2
- 
-加油
+remote_theme: pages-themes/cayman@v0.2.0
+plugins:
+- jekyll-remote-theme # add this line to the plugins list if you already have one
+  
+title: [陈十一的博客]
+description: [Java知识图谱]

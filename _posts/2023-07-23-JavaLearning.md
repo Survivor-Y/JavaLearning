@@ -19,5 +19,6 @@ tags: Java Mysql Spring
 
 ## HTTP协议
 1.HTTP协议1.0_1.1_2.0
-![](assets/img/profile.png)
+
+![](https://survivor-y.github.io/assets/img/profile.png)
 2.HTTP协议2.3

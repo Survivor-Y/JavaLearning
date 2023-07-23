@@ -19,5 +19,5 @@ tags: Java Mysql Spring
 
 ## HTTP协议
 1.HTTP协议1.0_1.1_2.0
-![](assert/ima/profile.png)
+![](assets/img/profile.png)
 2.HTTP协议2.3

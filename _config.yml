@@ -1,70 +1,93 @@
-# Site settings 配置站点
-title: '陈十一的个人主页'
-description: '愿为夜幕暗室的一粒灯火，照彻万里尘埃千百年。'
-keyword: 'Java, 后端'
-url: '' # your host
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
 
-# when build blog on server, if you don't need baseurl, you should leave this value blank.
-# 在服务器上建站时，如果你不需要子域名，请将这一格留空
-# if you're using GitHub Pages, set baseurl to your blog's .
-# 如果你在使用 GitHub Pages, 请将 baseurl 设置为你的网址的子域名
-# for example, if your site is "kaeyleo.github.io", then this url should leave blank.
-# 例如，当你的域名是 "kaeyleo.github.io"  时，这个 url 需要留空
-# but if your created a repo named "myblog", and the site is "kaeyleo.github.io/myblog", change baseurl to '/myblog'
-# 但是，如果你创建了一个叫 "myblog" 的网站，此时网址会变成 "kaeyleo.github.io/myblog" ，这时再将 baseurl 设置为 '/myblog'
-baseurl: ''
+# Site settings
+title: Yummy Theme # ex. I m Chuan
+name: Your Name # ex. DONGChuan
+email: my_email_address@lalala.com
+location: My location # ex. Nice, France
+company: MyCompany
+company_url: my_company_website
+github_url: my_github_url # ex. https://github.com/DONGChuan
+github_username: # ex. DONGChuan
+description: description_of_your_web_site
+favicon: favicon.png # Image must be in assets/images
+repository: github_username/github_username.github.io # ex. DONGChuan/DONGChuan.github.io
 
-# Navigation links
-nav:
-  home: '/'
-  tags: '/tags.html'
+# The base hostname & protocol for your site
+# For local test, please use http://localhost:4000
+# For production, use your github page url. ex. http://dongchuan.github.io
+url: http://localhost:4000
 
-# Footer
-footer:
-  since: 2023
-
-# Author 配置博主信息
-author: '陈十一'
-nickname: 'survivor'
-bio: '陈十一'
-avatar: '/assets/img/profile.png'
-
-# Search
-search: true
-
-# Night mode
-nightMode: true
-
-# MathJax 公式支持 by Ray-Eldath
-mathjax: true
-
-# Share
-social-share: true
-social-share-items: ['wechat', 'weibo', 'douban', 'twitter']
-
-# theme color 主题皮肤
-theme-color: 'default'  # pink or default
-
-# Post header background patterns (when the post no cover): circuitBoard, overlappingCircles, food, glamorous, ticTacToe, seaOfClouds
-postPatterns: 'circuitBoard'
-
-# Tags 设置标签
-recommend-tags: true # whether or not display recommend-tags on the sidebar
-recommend-condition-size: 12 # a tag will be recommended if the size of it is more than this value
+## Gem
+gems:
+  - jekyll-paginate
+  - jekyll-geo-pattern
+  - rouge
+  - kramdown
+  - jekyll-github-metadata
 
 # Build settings
-paginate: 6
-paginate_path: 'page:num'
-exclude: ['node_modules', 'dev', 'package.json', 'gulpfile.js', '.gitignore', 'README.md']
-
-# Markdown
 markdown: kramdown
 highlighter: rouge
+lsi:         false
+excerpt_separator: "\n\n"
+
+source:      .
+destination: ./_site
+
+quiet:    false
+defaults: []
+
 kramdown:
   input: GFM
+  enable_coderay: true
 
-# RSS
-RSS: false
+# Disque
+disque: my_disque_settings # ex. httpdongchuangithubio.disqus.com
 
-# Plugins
-plugins: [jekyll-paginate]
+# Pagination
+paginate: 10
+paginate_path: 'page:num'
+
+# Navigation. If you do not like these modules, just remove them :D
+navs:
+  -
+    href: /
+    label: Home
+
+  -
+    href: /open-source
+    label: Open-Source
+
+  -
+    href: /blog
+    label: Blog
+
+  -
+    href: /bookmark
+    label: Bookmark
+
+  -
+    href: /about
+    label: About
+
+# Sidebar to show popular repo
+side_bar_repo_limit: 5 # Number of repos to show
+
+# Google Analytics
+analytics :
+  provider : google
+  google :
+      tracking_id : 'tracking_id'  # ex. UA-72165600-X
+
+
+# For about.html. Fell free to create your own!
+skill_software_keywords: [Java, C, C++, Qt, Python, MySQL, Oracle, SQLite, PL/SQL, Design Patterns]
+skill_j2ee_keywords: [Spring, Struct, Hibernet, MyBatis, JSP]
+skill_web_keywords: [HTML, CSS, JS, JQuery, Ajax, AngularJS, NodeJS, ExpressJS, MongoDB, Redis, PHP, Symfony, Boostrap]
+skill_mobile_app_keywords: [Android, Sketch UI Desgin]

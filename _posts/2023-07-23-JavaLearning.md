@@ -5,13 +5,16 @@ date: 2023-07-23
 author: survivor
 tags: Java Mysql Spring
 ---
-「Java学习+面试材料」整理我学习&面试涵盖的方方面面
+「Java学习材料」对自身学习&面试等进行一个系统的整理
+
+
+
 - [网络基础](#网络基础)
   - [TCP协议](#tcp协议)
   - [OSI与TCP/IP模型](#osi与tcpip模型)
   - [HTTP/HTTPS](#httphttps)
-- [操作系统（OS：Operating System）基础](#操作系统osoperating-system基础)
-  - [**什么是操作系统？**](#什么是操作系统)
+- [操作系统基础](#操作系统基础)
+  - [什么是操作系统？](#什么是操作系统)
   - [内存管理](#内存管理)
 - [Java基础](#java基础)
 
@@ -71,11 +74,11 @@ HTTPS 协议（Hyper Text Transfer Protocol Secure），是 HTTP 的加强安全
 4. 服务器响应HTTP请求，把数据传回浏览器
 5. 浏览器解析HTML内容并渲染
 
-## 操作系统（OS：Operating System）基础
+## 操作系统基础
 
-### **什么是操作系统？**
+### 什么是操作系统？
 
-OS的本质是一个软件程序，屏蔽了硬件层的复杂性，用来管理和调用计算机硬件和软件资源。主要是进程和线程的管理，存储管理，文件管理，设备管理，网络管理，安全管理等
+OS（Operating System）的本质是一个软件程序，屏蔽了硬件层的复杂性，用来管理和调用计算机硬件和软件资源。主要是进程和线程的管理，存储管理，文件管理，设备管理，网络管理，安全管理等
 
 ![]({{site.url}}/assets/img/os.png)
 

@@ -11,11 +11,22 @@ tags: Java Mysql Spring
 
 - [网络基础](#网络基础)
   - [TCP协议](#tcp协议)
+    - [三次握手](#三次握手)
+    - [为什么两次不行？](#为什么两次不行)
+    - [四次挥手](#四次挥手)
   - [OSI与TCP/IP模型](#osi与tcpip模型)
   - [HTTP/HTTPS](#httphttps)
+    - [get和post的区别](#get和post的区别)
+    - [cookie和session区别](#cookie和session区别)
+    - [浏览器输入URL（Uniform Resource Locator）过程](#浏览器输入urluniform-resource-locator过程)
 - [操作系统基础](#操作系统基础)
   - [什么是操作系统？](#什么是操作系统)
+    - [进程和线程的区别](#进程和线程的区别)
+    - [进程间通信方式IPC（InterProcess Communication）](#进程间通信方式ipcinterprocess-communication)
+    - [进程调度算法](#进程调度算法)
+    - [用户态和内核态](#用户态和内核态)
   - [内存管理](#内存管理)
+    - [常见页面置换算法](#常见页面置换算法)
 - [Java基础](#java基础)
 
 ## 网络基础
@@ -24,18 +35,20 @@ tags: Java Mysql Spring
 
 ![]({{site.url}}/assets/img/tcpThreeFour.png)
 
-**三次握手**：目的是为了建立可靠的通信信道，即全双工的通信，需要确定通信双方都具备完好的接收和发送能力
+#### 三次握手
+
+目的是为了建立可靠的通信信道，即全双工的通信，需要确定通信双方都具备完好的接收和发送能力
 
 1. client   发送带有syn标志的数据包， **一次握手**进入syn_sent状态——server端确认：client发送正常，server端接收正常
 2. server 发送带有syn、ack标志的数据包， **二次握手**进入syn_rcvd状态——client端确认：client发送接收都正常，server端发送接收都正常
 3. client  发送带有ack标志的数据包，**三次握手**连接成功进入established状态——server端确认：client发送接收都正常，server端发送接收都正常
 
-**为什么两次不行？**
+#### 为什么两次不行？
 
 1. 首先要理解三次握手都做了什么，从上面的图解及描述可以看出，如果只有两次，最终client端能够确认双方的接发都没问题，但是server无法确认client的接收和自身的发送是否正常，无法达到全双工通信的要求
 2. 在网络拥塞的情况下，如果只有二次握手，只要服务端发出确认就可以建立链接，那客户端一直不发数据，服务端就会一直等待造成资源浪费
 
-**四次挥手**
+#### 四次挥手
 
 1. client 发送带有FIN标志的数据包，关闭与server的连接——client进入FIN-WAIT-1状态
 2. server 收到FIN，发回一个ACK，确认序号为收到的序号+1——server 进入了CLOSE-WAIT的状态
@@ -52,21 +65,21 @@ HTTP 协议（Hypertext Transfer Protocol），主要是来规范浏览器和服
 
 HTTPS 协议（Hyper Text Transfer Protocol Secure），是 HTTP 的加强安全版本。HTTPS 是基于 HTTP 的，也是用 TCP 作为底层协议，并额外使用 SSL/TLS 协议用作加密和安全认证。默认端口443，传输过程ssl加密，安全性较好，响应速度较慢，消耗资源多，需要用到CA证书。HTTPS协议运行再SSL/TLS上
 
-**get和post的区别**
+#### get和post的区别
 
 - get入参在URL中对所有人可见，post数据不会在URL中
 - get与post相比，安全性较差，post的参数不会被保存在浏览器历史或web服务器日志中
 - get可以传送的数据不能大于2kb，post数据理论上不受限制
 - get请求可以缓存，并且作为书签
 
-**cookie和session区别**
+#### cookie和session区别
 
 - cookie数据保存在客户端（浏览器），session数据保存在服务器端
 
 - cookie不是很安全，浏览器的cookie可以被伪造，安全性更高的是session
 - cookie一般用来保存用户信息，session主要作用就是通过服务端记录用户的状态
 
-**浏览器输入URL（Uniform Resource Locator）过程**
+#### 浏览器输入URL（Uniform Resource Locator）过程
 
 1. 浏览器查找DNS（Domain Name System, 域名系统）的IP地址（DNS：获取域名对应的IP）
 2. 根据IP建立TCP链接（TCP：与服务器建立连接）
@@ -85,13 +98,15 @@ OS（Operating System）的本质是一个软件程序，屏蔽了硬件层的�
 - Kernel操作系统核心属于操作系统层面，屏蔽了对硬件的操作
 - CPU（Central Processing Unit）属于硬件，主要提供运算，处理各种指令的能力。
 
-**进程和线程的区别**
+#### 进程和线程的区别
 
 **进程**是资源分配的最小单位，指计算机中正在运行的一个程序实例。
 
+**线程**是任务调度和执行的最小单位，更加轻量，多个线程可以在同一个进程中同时执行。
+
 ![]({{site.url}}/assets/img/jincheng.png)
 
-进程间通信方式IPC（InterProcess Communication）
+#### 进程间通信方式IPC（InterProcess Communication）
 
 - **管道Pipes**：用于具有亲缘关系的父子进程间和兄弟进程之间的通信
 - **信号**：一种比较复杂的通信方式，通知接收进程某个事件已经发生。
@@ -100,16 +115,14 @@ OS（Operating System）的本质是一个软件程序，屏蔽了硬件层的�
 - **共享内存**：多进程可以直接读写同一块内存空间，最有用的进程间通信方式
 - **套接字**：客户端和服务器通过网络进行通信，套接字是双方的一种约定，套接字是支持TCP/IP的网络通信的基本通信单元。
 
-进程调度算法
+#### 进程调度算法
 
-- FCFS（Fisrt Come，First Served）：先到先服务
-- SJF（Shortest Job First）：短作业优先
+- **FCFS**（Fisrt Come，First Served）：先到先服务
+- **SJF**（Shortest Job First）：短作业优先
 - RR（Round-Robin）：时间片轮转
-- MFQ（Multi-Level FeedBack Queue）：公认较好的进程调度算法，Unix采用的
+- **MFQ**（Multi-Level FeedBack Queue）：公认较好的进程调度算法，Unix采用的
 
-**线程**是任务调度和执行的最小单位，更加轻量，多个线程可以在同一个进程中同时执行。
-
-**用户态和内核态**
+#### 用户态和内核态
 
 **用户态**：只能受限的访问内存，运行所有应用程序
 
@@ -127,7 +140,7 @@ OS（Operating System）的本质是一个软件程序，屏蔽了硬件层的�
 
 **段页式管理**：结合段和页的有点，先把驻村分成若干段，每个段分成若干页
 
-**常见页面置换算法**
+#### 常见页面置换算法
 
 - 最佳页面置换算法（OPT）：优先淘汰未来长时间不被访问的或不再被使用的页面，过于理想化无法实现，但可做为评判其他算法的标准
 - 先进先出页面置换算法（FIFO）：最简单的算法
